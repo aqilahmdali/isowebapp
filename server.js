@@ -1,6 +1,6 @@
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
-const bodyParser = require('body-parser');
 const cors = require('cors');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
@@ -38,8 +38,8 @@ app.use(cors({
 }));
 
 // Body parser middleware
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 // Static files
 app.use(express.static(path.join(__dirname, 'public')));
